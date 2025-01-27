@@ -66,9 +66,7 @@ header {
   flex-wrap: wrap;
 }
 #landing-img {
-  background-image: url(assets/lorenzo/IMG_6176.jpeg);
-  background-size: cover;
-  background-position: center;
+  position: relative;
   height: 75vh;
   min-height: 500px;
   display: flex;
@@ -77,6 +75,25 @@ header {
   color: white;
   text-align: center;
   margin: 0 0.7em;
+  overflow: hidden;
+}
+.slideshow-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.6, 0, 0.4, 1), filter 1.2s cubic-bezier(0.6, 0, 0.4, 1), transform 1.2s cubic-bezier(0.6, 0, 0.4, 1);
+}
+.slideshow-img.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+.slideshow-img:not(.active) {
+  filter: blur(20px);
+  transform: scale(1.05);
 }
 .welcome-msg {
   display: flex;
