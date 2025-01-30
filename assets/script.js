@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
-    "assets/lorenzo/IMG_6176.jpeg",
-    "assets/lorenzo/IMG_6161.jpeg",
-    "assets/lorenzo/IMG_6157.jpeg",
-    "assets/lorenzo/IMG_6160.jpeg",
-    "assets/lorenzo/IMG_6165.jpeg",
-    "assets/lorenzo/IMG_6167.jpeg",
-    "assets/lorenzo/IMG_6170.jpeg",
-    "assets/lorenzo/IMG_6165.jpeg",
-    "assets/lorenzo/IMG_6172.jpeg",
-    "assets/lorenzo/IMG_6177.jpeg",
-    "assets/lorenzo/IMG_6179.jpeg",
-    "assets/lorenzo/IMG_7422.jpeg",
+    "../assets/lorenzo/IMG_6176.jpeg",
+    "../assets/lorenzo/IMG_6161.jpeg",
+    "../assets/lorenzo/IMG_6157.jpeg",
+    "../assets/lorenzo/IMG_6160.jpeg",
+    "../assets/lorenzo/IMG_6165.jpeg",
+    "../assets/lorenzo/IMG_6167.jpeg",
+    "../assets/lorenzo/IMG_6170.jpeg",
+    "../assets/lorenzo/IMG_6165.jpeg",
+    "../assets/lorenzo/IMG_6172.jpeg",
+    "../assets/lorenzo/IMG_6177.jpeg",
+    "../assets/lorenzo/IMG_6179.jpeg",
+    "../assets/lorenzo/IMG_7422.jpeg",
   ];
   let currentIndex = 0;
   const landingImg = document.getElementById("landing-img");
@@ -51,4 +51,25 @@ document.addEventListener("DOMContentLoaded", function () {
       showNextImage();
     }
   });
+});
+
+// LANGUAGE SWITCHER
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = document.documentElement.lang; // Detect language from <html lang="">
+
+  fetch("/assets/translation.json")
+    .then((response) => response.json())
+    .then((translations) => {
+      updateText(lang, translations);
+    });
+
+  function updateText(lang, translations) {
+    document.querySelectorAll("[id]").forEach((element) => {
+      const key = element.id;
+      if (translations[lang] && translations[lang][key]) {
+        element.innerText = translations[lang][key];
+      }
+    });
+  }
 });

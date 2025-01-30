@@ -1,11 +1,11 @@
 @font-face {
   font-family: akzidenz;
-  src: url(assets/fonts/Akzidenz\ Grotesk\ Pro\ Regular\ Regular.otf);
+  src: url(fonts/Akzidenz\ Grotesk\ Pro\ Regular\ Regular.otf);
   font-style: normal;
 }
 @font-face {
   font-family: akzidenz;
-  src: url(assets/fonts/Akzidenz\ Grotesk\ Pro\ Regular\ Italic.otf);
+  src: url(fonts/Akzidenz\ Grotesk\ Pro\ Regular\ Italic.otf);
   font-style: italic;
 }
 
@@ -34,16 +34,17 @@ a {
   cursor: pointer;
   transition: 0.2s ease-out;
 }
-a:hover {
+#navbar a:hover {
   color: darkorange;
 }
 header {
   margin-top: 3em;
+  justify-content: center;
 }
 
 #navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: start;
   padding: 0.3em 0.7em 0.5em 0.7em;
   font-size: 1.2em;
@@ -56,6 +57,12 @@ header {
   width: 100%;
   flex-wrap: wrap;
   height: 2.5em;
+}
+.navbar-box {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
 }
 .navbar-item {
   width: fit-content;
@@ -92,11 +99,12 @@ header {
   transform: scale(1);
 }
 .slideshow-img:not(.active) {
-  filter: blur(20px);
+  filter: blur(40px);
   transform: scale(1.05);
 }
 .welcome-msg {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -123,9 +131,6 @@ main {
   margin-bottom: 4em;
   scroll-margin-top: 50px;
 }
-.section-img {
-  margin-bottom: 1.5em;
-}
 
 h1 {
   all: unset;
@@ -143,12 +148,18 @@ h1 {
   color: white;
   text-align: center;
   width: 100%;
+  margin-bottom: 1.5em;
 }
+.section-img-2 {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
 .casa-img {
-  background-image: url(assets/mamma/casina_1.jpg);
+  background-image: url(mamma/casina_1.jpg);
 }
 .esterno-img {
-  background-image: url(assets/lorenzo/IMG_6161.jpeg);
+  background-image: url(lorenzo/IMG_6161.jpeg);
 }
 .text {
   display: flex;
@@ -178,6 +189,66 @@ h3 {
   flex-direction: column;
   margin-bottom: 1em;
 }
+.book {
+  margin: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+button {
+  all: unset;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  color: black;
+  border: black 1px solid;
+  /* border-radius: 0.2em; */
+  transition: 0.1s ease-out;
+}
+button:hover {
+  background-color: black;
+  color: rgb(255, 250, 241);
+  /* color: darkorange; */
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+  font-size: 0.9em;
+  margin: 0 0.7em 3em 0.7em;
+}
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 250, 241);
+  font-size: 1em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  max-width: 1200px;
+  border-top: 1px solid black;
+  padding-top: 1em;
+  gap: 1em;
+}
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+}
+/*-------------------MEDIA QUERIES-------------------*/
 
 @media (max-width: 768px) {
   body {
