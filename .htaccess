@@ -1,4 +1,15 @@
+# RewriteEngine On
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(en|it)/?$ /$1/index.html [L]
+
 RewriteEngine On
+
+# Redirect root (example.com) to /it/
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /it/ [L,R=301]
+
+# Enable clean URLs for language folders (example.com/en/ instead of example.com/en/index.html)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(en|it)/?$ /$1/index.html [L]

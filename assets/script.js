@@ -73,3 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the current path of the page
+  const currentPath = window.location.pathname;
+
+  // Find all language switch links
+  const langSwitchLinks = document.querySelectorAll(".lang-switch");
+
+  // Iterate over each link and add 'active' class if it matches the current path
+  langSwitchLinks.forEach((link) => {
+    // Check if the link's href matches the current page path
+    if (currentPath.startsWith(link.getAttribute("href"))) {
+      link.classList.add("active");
+    }
+  });
+});

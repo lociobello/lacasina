@@ -5,12 +5,19 @@
 }
 @font-face {
   font-family: akzidenz;
+  src: url(fonts/Akzidenz\ Grotesk\ Pro\ Med\ Regular.otf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: akzidenz;
   src: url(fonts/Akzidenz\ Grotesk\ Pro\ Regular\ Italic.otf);
   font-style: italic;
 }
 
 * {
   font-family: akzidenz;
+  /* font-weight: 500; */
 }
 html {
   scroll-behavior: smooth;
@@ -34,8 +41,33 @@ a {
   cursor: pointer;
   transition: 0.2s ease-out;
 }
+ul {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 #navbar a:hover {
   color: darkorange;
+}
+.lang-switch {
+  font-size: 0.7em;
+  padding: 0.2em;
+  border-radius: 1em;
+  width: 1.4em;
+  height: 1.4em;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+}
+.lang-switch.active {
+  border: 1px solid black;
+}
+.lang-switch-box {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3em;
+  align-items: center;
 }
 header {
   margin-top: 3em;
@@ -52,7 +84,13 @@ header {
   top: 0;
   z-index: 1000;
   /* background-color: rgb(255, 250, 241); */
-  background-image: linear-gradient(to bottom, rgba(255, 250, 241, 1), rgba(255, 250, 241, 1), rgba(255, 250, 241, 1), rgba(255, 250, 241, 0));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 250, 241, 1),
+    rgba(255, 250, 241, 1),
+    rgba(255, 250, 241, 1),
+    rgba(255, 250, 241, 0)
+  );
   box-sizing: border-box;
   width: 100%;
   flex-wrap: wrap;
@@ -63,6 +101,7 @@ header {
   width: 100%;
   max-width: 1200px;
   justify-content: space-between;
+  align-items: center;
 }
 .navbar-item {
   width: fit-content;
@@ -71,6 +110,7 @@ header {
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
+  align-items: center;
 }
 #landing-img {
   position: relative;
@@ -91,7 +131,8 @@ header {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.2s cubic-bezier(0.6, 0, 0.4, 1), filter 1.2s cubic-bezier(0.6, 0, 0.4, 1), transform 1.2s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: opacity 1.2s cubic-bezier(0.6, 0, 0.4, 1), filter 1.2s cubic-bezier(0.6, 0, 0.4, 1),
+    transform 1.2s cubic-bezier(0.6, 0, 0.4, 1);
 }
 .slideshow-img.active {
   opacity: 1;
@@ -216,8 +257,9 @@ footer {
   display: flex;
   justify-content: center;
   margin-bottom: 3em;
-  font-size: 0.9em;
-  margin: 0 0.7em 3em 0.7em;
+  /* font-size: 0.9em; */
+  margin: 0 0.7em 5em 0.7em;
+  opacity: 0.4;
 }
 .footer-container {
   display: flex;
